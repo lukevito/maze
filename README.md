@@ -1,7 +1,7 @@
 # Maze
 Dokumentacja architektury systemu do rowiązywania labiryntów
 
-zobacz plik -> [zadanie.pdf](export/zadanie.pdf)
+zobacz plik -> [zadanie.pdf](doc/presentations/export/zadanie.pdf)
 
 ## Setup projektu
 
