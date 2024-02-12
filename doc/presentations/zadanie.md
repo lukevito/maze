@@ -66,12 +66,12 @@ Możliwość generowania diagramów modelu architektury (zobacz katalog **doc\di
 ```
 python.exe .\architecture.py
 ```
+Przykład:
 
 ---
 
-#### Przykładowy diagram
-
-TODO:
+![bg](images/message_collecting_code.png)
+![bg](images/message_collecting_diagram.png)
 
 ---
 
