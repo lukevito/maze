@@ -53,6 +53,5 @@ doc/adr/0001-record-architecture-decisions.md
 doc/adr/0002-create-equal-animals.md
 ```
 
-
 ## Generowanie prezentacji (Visual Studio Code)
-![alt text](diagrams/images/export.gif) 
+![alt text](doc/presentations/images/export.gif) 
