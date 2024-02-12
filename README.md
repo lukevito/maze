@@ -1,4 +1,4 @@
-# Maze
+# Maze Solver
 Dokumentacja architektury systemu do rowiązywania labiryntów
 
 zobacz plik -> [zadanie.pdf](doc/presentations/export/zadanie.pdf)
