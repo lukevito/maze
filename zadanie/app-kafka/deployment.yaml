@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: app-kafka
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: app-kafka
+    template:
+      metadata:
+        labels:
+          app: app-kafka
+      spec:
+        containers:
+        - name: app-kafka
+          image: maze-app-kafka
+          ports:
+          - containerPort: 9092
+  

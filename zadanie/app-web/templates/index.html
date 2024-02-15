@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Wiadomość do Kafki</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <h1>Wyślij wiadomość do Kafki</h1>
+    
+    <form method="post" action="/" id="message-form">
+        <input type="text" id="message" placeholder="Wpisz wiadomość" value="test123">
+        <input type="submit" value="Wyślij">
+    </form>
+    <br>
+    <p id="status"></p>
+    
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
+        console.log("start: ");
+
+        socket.on("redirect", (url) => {
+            console.log("Otrzymano wiadomość: ", url);
+            window.location.href = url;
+        });
+
+        $(document).ready(function() {
+            $("#message-form").submit(function(e) {
+                e.preventDefault();
+
+                const message = $("#message").val();
+                socket.emit("zadanie_do_rozwiazania", message);
+            });
+        });
+    </script>
+
+</body>
+</html>

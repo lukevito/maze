@@ -1,0 +1,14 @@
+
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: app-kafka
+  spec:
+    selector:
+      matchLabels:
+        app: app-kafka
+    ports:
+    - protocol: TCP
+      port: 9092
+      targetPort: 9092
+  

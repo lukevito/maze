@@ -1,0 +1,25 @@
+projects:
+  - name: app-web
+    deployment: app-web/deployment.yaml
+    service: app-web/service.yaml
+  - name: app-kafka
+    deployment: app-kafka/deployment.yaml
+    service: app-kafka/service.yaml
+
+images:
+  - name: maze-web
+    project: app-web
+  - name: maze-kafka
+    project: app-kafka
+
+deployments:
+  - project: app-web
+    file: "app-web/deployment.yaml"
+  - project: app-kafka
+    file: "app-kafka/deployment.yaml"
+
+services:
+  - project: app-web
+    file: "app-web/service.yam"
+  - project: app-kafka
+    file: "app-kafka/service.yaml"

@@ -1,0 +1,7 @@
+kubernetes
+prometheus_client
+docker
+docker-py
+clipboard
+gitpython
+pathlib
