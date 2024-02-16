@@ -24,9 +24,9 @@
         var socket = io();
         console.log("start: ");
 
-        socket.on("redirect", (url) => {
+        socket.on("prezentuj_rozwiazanie", (url) => {
             console.log("Otrzymano wiadomość: ", url);
-            window.location.href = url;
+            window.location.href = "/success";
         });
 
         $(document).ready(function() {

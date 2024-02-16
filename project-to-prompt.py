@@ -5,7 +5,9 @@ import chardet
 
 text_output = {}
 
-def list_repo_contents(path):
+list_output = ""
+
+def list_repo(path):
     """
     Wyświetla listę plików i folderów w repozytorium Git z zachowaniem struktury drzewa.
 
@@ -13,6 +15,20 @@ def list_repo_contents(path):
         path: Ścieżka do katalogu zawierającego repozytorium Git.
     """
 
+    repo = Repo(path, search_parent_directories=True)
+
+    def print_tree(tree, indent=""):
+        global list_output
+        for entry in tree.blobs + tree.trees:
+            if entry.type == "blob":
+                list_output += f"{indent}Plik: {entry.name}\n"
+            elif entry.type == "tree":
+                list_output += f"{indent}Katalog: {entry.name}\n"
+                print_tree(entry, indent + "  ")
+
+    print_tree(repo.tree(), "")
+
+def list_repo_file_content(path):
     repo = Repo(path, search_parent_directories=True)
 
     def print_tree(tree, indent=""):
@@ -41,13 +57,14 @@ if __name__ == "__main__":
     path = Path(".")
 
     # Wyświetl listę plików i folderów
-    list_repo_contents(path)
+    list_repo(path)
+    print(list_output)
+    
+    # Wyświetl zawartość plików
+    list_repo_file_content(path)
 
-    # Wyświetl zawartość mapy
-    for filename, content in text_output.items():
-        print(f"**Plik: {filename}**")
-        print(content)
-        print("---")
+    text = "\n".join([f"{key}: {value}" for key, value in text_output.items()])
+    
+    print(text)
 
-    # Kopiuj do schowka
-    pyperclip.copy("Mam taką strukture projektu python: \n" + text_output)
+    # pyperclip.copy("Mam taką strukture projektu python: \n" + text_output)

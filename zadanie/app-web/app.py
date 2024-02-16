@@ -23,11 +23,6 @@ def consume_messages():
         except Exception as e:
             errorExc(e)
 
-@socketio.on("prezentuj_rozwiazanie")
-def on_prezentuj_rozwiazanie(rozwiazanie):
-    app.logger.info(f"Prezentowanie rozwiązania: {rozwiazanie}")
-    emit("redirect", "/success")
-
 @socketio.on("zadanie_do_rozwiazania")
 def on_zadanie_do_rozwiazania(message):
     app.logger.info(f"Otrzymano zadanie do rozwiązania: {message}")
